@@ -1,0 +1,18 @@
+body{
+    background-color: #eee;
+}
+
+.caja{
+    margin: 8px;
+    padding: 8px;
+    border-style: solid;
+    border-width: 8px;
+    border-color: #faa;
+    border-left: 6px solid #afa; /*primero se declara el tamaño despues el estilo de borde y por ultimo el color. Se puede hacer con todos los margenes*/
+    border-right: 6px solid #afa;
+    border-radius: 4px; /*Redondea los radios, cuantos mas pixeles mar redondeado*/
+    background-color: #aaf;
+    height: 100px;
+    width: 100px;
+    color: rgb(109, 106, 106);
+}

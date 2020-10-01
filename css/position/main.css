@@ -1,0 +1,13 @@
+body{ 
+      background-color: #eee;
+}
+
+p{
+      max-width: 350px; /*max-width le añade un ancho maximo al elemento mientras que width le indica el ancho que debe tomar independientemente del ancho de la ventana donde se muestra */
+      background-color: #f00;
+      margin: auto;
+      position: fixed;
+      right: 15px;/*Por defecto el la posicion es static por lo que los elementos left, right, etc no hacen efecto para eso debemos usar position relative*/
+      top: 0px;
+      bottom: 0px;
+}

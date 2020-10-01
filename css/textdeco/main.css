@@ -1,0 +1,22 @@
+body{ 
+      background-color: #eee;
+}
+
+p {
+      	color: #222FFF;
+	text-align: left;
+	text-indent: 15px;/*Añade una tabulacion del tamaño que deseemos*/
+	line-height: 1.7;/*modifica el alto de las lineas*/
+	word-spacing: 10px;
+	text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3); /*los parametros de text shadow son el desplacamiento a la derecha, el desplazamiento hacia abajo, la difuminacion y el color. El rgba tal y como esta da una sensacion 3D*/
+}
+
+a {
+      	text-decoration: none;
+	text-transform: uppercase; /*Cambia a mayusculas el texto, lowercase para cambiar a minuscula y capitalize para poner la primera letra mayuscula*/
+	letter-spacing: 3px;/*Añade separación entre las letras*/
+}
+
+header{
+      background-color: #ccc;
+}

@@ -1,0 +1,9 @@
+body{
+    background-color: #eee;
+}
+
+.fondo{
+    background-color: rgba(255,0,0,0.3);
+    background-color: hsl(120, 60%, 70%); /*tambien se podria poner como una parametro a continuacion y afectaria solo al fondo*/
+    opacity: 0.3; /*en este caso la opacidad afecta a todo el contenido, no solamente al fondo*/
+}

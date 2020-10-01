@@ -1,0 +1,10 @@
+body{
+    background-color: #eee;
+}
+
+.fondo{
+    height: 400px;
+    background: red url('http://placekitten.com/200/300') no-repeat left top scroll;/*con background podemos utilizar todas las propiedades que se ven a continuacion incluyendolas en el mismo orden*/
+    /*por defecto tiene el valor scroll con fixed la imagen baja con al hacer scroll*/
+    background-size: cover;
+}

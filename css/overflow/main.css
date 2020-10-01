@@ -1,0 +1,13 @@
+body{
+      background-color: #eee;
+}
+
+#over{
+      width: 100px;
+      height: 100px;
+      overflow: auto; /*La propiedad overflow en hidden hace que no se muestren todos los elementos que esten fuera del tamaño del contenedor en el caso de ponerle la propiedad scroll te deja hacer scroll dentro del contenido*/
+}
+
+
+
+

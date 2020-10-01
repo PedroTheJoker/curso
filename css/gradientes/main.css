@@ -1,0 +1,7 @@
+body{
+    background-color: #eee;
+}
+
+.fondo{
+    background-image: linear-gradient(to bottom right, red, blue);/*tambien se puede cambiar el angulo del degradado con angulos en grados ademas de poder poner colores intermedios*/
+}

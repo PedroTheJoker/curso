@@ -1,0 +1,29 @@
+body{ 
+      background-color: #eee;
+}
+a{
+      color: hotpink;
+      background-color: #f00;
+      border:solid 1px #d00;
+      padding: 10px;
+      margin: 15px;
+      border-radius: 4px;
+}
+
+a:link{
+      color: pink;
+      text-decoration: none;
+}
+
+a:visited{
+      color: white;
+}
+
+a:active{
+      color: black;
+}
+
+a:hover{
+      color: white;
+      background-color: #f55;
+}

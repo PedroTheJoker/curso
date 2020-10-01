@@ -1,0 +1,31 @@
+body{
+    background-color: #eee;
+}
+table{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    border-top: 0px;
+}
+
+.caja{
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+}
+#aceptar{
+    padding: 5px;
+    background-color: #0090ff;
+    color: #fff;
+    border: hidden;
+}
+#cancelar{
+    padding: 5px;
+    background-color: #aaa;
+    border: hidden;
+    color: #fff;
+}
+
+tfoot td{
+    padding: 8px;
+}
+
