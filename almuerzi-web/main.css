@@ -30,3 +30,16 @@ ul {
   margin: 15px;
   margin-left: 30px;
 }
+
+#submit:disabled {
+  background-color: #ccc;
+}
+
+#meals-list li {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #ddd;
+  /*TODO poner margen a la derecha para espaciarlo del borde de la caja*/
+}
