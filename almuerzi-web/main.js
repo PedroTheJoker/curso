@@ -9,7 +9,7 @@ const renderItem = (item) => {
 
   element.addEventListener("click", () => {
     const mealsList = document.getElementById("meals-list");
-    array
+    Array
       .from(mealsList.children)
       .forEach((x) => x.classList.remove("selected"));
     element.classList.add("selected");
@@ -26,7 +26,7 @@ window.onload = () => {
     e.preventDefault();
     const mealId = document.getElementById("meals-id");
     const mealIdValue = mealId.value;
-    if (!mealsIdvalue) {
+    if (!mealIdvalue) {
       alert("Debes seleccionar un dato");
       return;
     }
@@ -36,6 +36,7 @@ window.onload = () => {
       user_id: "Puma",
     };
   };
+
   fetch(
     "https://serverless.pedrothejoker.vercel.app/api/meals" /* {
     method: "GET", // POST, PUT, DELETE
