@@ -1,3 +1,5 @@
+let mealsState = [];
+
 const stringToHTML = (s) => {
   const parser = new DOMParser();
   const doc = parser.parseFromString(s, "text/html");
@@ -9,9 +11,9 @@ const renderItem = (item) => {
 
   element.addEventListener("click", () => {
     const mealsList = document.getElementById("meals-list");
-    Array
-      .from(mealsList.children)
-      .forEach((x) => x.classList.remove("selected"));
+    Array.from(mealsList.children).forEach((x) =>
+      x.classList.remove("selected")
+    );
     element.classList.add("selected");
     const mealsIdInput = document.getElementById("meals-id");
     mealsIdInput.value = item._id;
@@ -24,39 +26,63 @@ window.onload = () => {
   const orderForm = document.getElementById("order");
   orderForm.onsubmit = (e) => {
     e.preventDefault();
+    const submit = document.getElementById("submit");
+    submit.setAttribute("disabled", true);
     const mealId = document.getElementById("meals-id");
     const mealIdValue = mealId.value;
-    if (!mealIdvalue) {
+    if (!mealIdValue) {
       alert("Debes seleccionar un dato");
       return;
     }
 
     const order = {
       meal_id: mealIdValue,
-      user_id: "Puma",
+      user_id: "Pedro",
     };
+
+    fetch("https://serverless.pedrothejoker.vercel.app/api/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(order),
+    })
+      .then((x) => x.json())
+      .then((respuesta) => {
+        const renderedOrder = renderOrder(respuesta, mealsState);
+        const ordersList = document.getElementById("orders-list");
+        ordersList.appendChild(renderedOrder);
+        submit.removeAttribute("disabled");
+      });
   };
 
-  fetch(
-    "https://serverless.pedrothejoker.vercel.app/api/meals" /* {
-    method: "GET", // POST, PUT, DELETE
-    mode: "cors",
-    cache: "no-cache",
-    credentials: "same-origin",
-    headers: {
-      "content-type": "application/json",
-    },
-    redirect: "follow",
-    body: JSON.stringify({ user: "lala", password: "1234" }),
-   }*/
-  )
+  fetch("https://serverless.pedrothejoker.vercel.app/api/meals")
     .then((response) => response.json())
     .then((data) => {
+      mealsState = data;
       const mealsList = document.getElementById("meals-list");
       const submit = document.getElementById("submit");
       const listItems = data.map(renderItem);
       mealsList.removeChild(mealsList.firstElementChild);
       listItems.forEach((element) => mealsList.appendChild(element));
       submit.removeAttribute("disabled");
+      fetch("https://serverless.pedrothejoker.vercel.app/api/orders")
+        .then((response) => response.json())
+        .then((ordersData) => {
+          const ordersList = document.getElementById("orders-list");
+          const listOrders = ordersData.map((orderData) =>
+            renderOrder(orderData, data)
+          );
+          ordersList.removeChild(ordersList.firstElementChild);
+          listOrders.forEach((element) => ordersList.appendChild(element));
+        });
     });
+};
+
+const renderOrder = (order, meals) => {
+  const meal = meals.find((meal) => meal._id === order.meal_id);
+  const element = stringToHTML(
+    `<li data-id="${order._id}">${meal.name} - ${order.user_id}</li>`
+  );
+  return element;
 };
