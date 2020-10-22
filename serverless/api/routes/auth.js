@@ -2,6 +2,7 @@ const express = require("express");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 const Users = require("../models/Users");
+const { isAuthenticated } = require('../auth');
 
 const router = express.Router();
 
@@ -49,10 +50,15 @@ router.post("/login", (req, res) => {
         const encryptedPassword = key.toString("base64");
         if (user.password === encryptedPassword) {
           const token = signToken(user._id);
-          return res.send("Usuario y/o contraseña incorrecta");
+	    return res.send({ token })
         }
+          return res.send("Usuario y/o contraseña incorrecta");
       });
     });
+});
+
+router.get('/me', isAuthenticated, (req, res) => {
+    res.send(req.user);
 });
 
 module.exports = router;
